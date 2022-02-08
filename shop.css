@@ -1,0 +1,6 @@
+/* 아래에 코드를 작성하시오. */
+
+/* 모달창이 뜬 후 껐을 때 클릭한 버튼 테두리가 빛나는 설정을 꺼주기 */
+.btn-body:focus {
+  box-shadow: none !important;
+}

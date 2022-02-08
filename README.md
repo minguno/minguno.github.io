@@ -230,10 +230,97 @@ HTML5, CSS3에 의해 지원되는 미디어 쿼리는 반응형 웹의 핵심 �
 
 
 
-## 🎈 완성된 모습
+## 🎈 요구 사항 외에 추가한 기능
 
 ---
 
-- 992px 이상일 때: laptop이나 desktop 화면
-- 768 - 992px 사이일 때: tablet 화면
-- 768px 미만일 때: mobile 화면
+**1. 확대/돋보기 커서 Zoom-in cursor **
+
+* 이미지에 마우스를 갖다대면 커서가 돋보기로 변환된다
+
+* Bootstrap icon install 링크를 html 문서 head 안에 넣어준다
+
+  ```html
+  <!-- Bootstrap Icon Install -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  ```
+
+* 원하는 태그에 커서 스타일을 지정해준다
+
+  * 나 같은 경우 Modal 버튼에 추가해줬다
+
+  ```html
+  <button type="button" ... style="cursor: zoom-in">
+  ```
+
+
+
+**2. 이미지 확대 Modal Component**
+
+- 팝업 창이라고도 알고 있는 Modal 기능을 사용하여 상품 이미지를 클릭하면 확대된 이미지가 뜨도록 설정했다
+
+- 버튼의 id값과 modal의 id 값이 동일해야만 작동한다
+
+- 또한 버튼을 클릭해서 modal 뜨고 껐을 때, 클릭한 버튼 테두리로 빛나는 효과를 따로 없애줬다
+
+  ```css
+  .btn-body:focus {
+    box-shadow: none !important;
+  }
+  ```
+
+  - 어차피 접근성을 위한 기능이라 꺼줘도 문제는 없다
+
+
+
+**3. Hyperlink 하이퍼링크**
+
+- `navbar`에 위치한 삼성 브랜드 로고를 클릭하면 삼성전자 메인 페이지로 이동한다
+- 버즈 상품 이름 `Buds`를 클릭하면 공식 판매 페이지로 이동한다
+
+
+
+## 🎈 중요하게 생각한 기능
+
+---
+
+- `img-fluid` 기능
+
+  ```html
+  <img src="images/main.png" alt="Main Image" class="img-fluid">
+  ```
+
+  - 반응형 웹 기반의 프레임워크 답게 정말 편한 기능이다
+
+  - 부모 요소 container의 width를 100%로 쓰면서 height는 auto로 맞춰진다
+
+  - 이게 아니었다면, css에 따로 꽤나 번거롭게 지정해줘야 한다
+
+    ```css
+    section {
+      height: 700px;
+      background-image: url('images/header.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    ```
+
+- `sticky-top` 과 `sticky-bottom`
+
+  - 전자는 스크롤을 내려도 상단 바가 화면에 계속 위치해 있다
+  - 후자는 외려 사이트 맨 마지막에 고정되어 있고 `fixed-bottom`으로 했을 때 스크롤을 내려도 화면 하단에 계속 떠 있다
+
+- Modal 연결
+
+  - button의 #를 제외한 `data-bs-target`값과 modal의 `id` 값이 같아야 클릭과 팝업창이 연결된다
+
+
+
+## 🎈 느낀점
+
+---
+
+솔직히 BoostStrap 처음에 쓸 때는 찾아봐야 할 것도 많고 (모든걸 다.. ) CSS를 배운지 하루만에 반응형 웹을 구사해야 된다니 막막했는데 익숙해지고 나니 왜 편하다고 하는지 백번 이해간다.
+
+엔지니어가 된다면 백엔드냐 프론트엔드냐는 크게 유의미한 구분을 두지 않았었는데 이번에 알았다. 프론트엔드가 완전 내 적성이라는 것을. 깔끔하게 떴을 땐 세상 충만하고 뿌듯한데 에러나거나 박스 뒤엉키면 그렇게 암담할 수가 없다.
+
